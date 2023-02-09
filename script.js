@@ -10,6 +10,8 @@ var messages = function() {
   passwordLength = prompt("Please enter the number of characters between 8-128")
   if (passwordLength < 8 || passwordLength> 128) {
     alert("Password length must be a number between 8 and 128")
+    //Stops the messages if length is invalid
+    return false
   } 
   if (confirm("Include lowercase letter?") === true) {
     userChoiceArray = userChoiceArray.concat(lowerCase)
@@ -22,15 +24,14 @@ var messages = function() {
   }
   if (confirm("Include special characters?") === true) {
     userChoiceArray = userChoiceArray.concat(special)
+  } 
+  else {
+    alert("Please choose at least one perameter!")
   }
 }
 
 
 
-
-
-
-console.log(messages)
 
 
 // Assignment Code
