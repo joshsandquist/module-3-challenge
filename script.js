@@ -29,7 +29,11 @@ var messages = function() {
     alert("Please choose at least one perameter!")
   }
 }
-
+//Code to pick random characters from user's choice array
+var generatePassword = function() {
+  var password = "";
+  for(var i = 0; i < userChoiceArray.length; i++)
+}
 
 
 
