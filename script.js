@@ -7,6 +7,7 @@ var special =[ '!','"','#','$','%','&','(',')','*','+',',','-','.','/',':',';','
 var userChoiceArray =[]
 // This function will allow for the user to decide perameters for their password
 var messages = function() {
+  userChoiceArray = []
   passwordLength = prompt("Please enter the number of characters between 8-128")
   if (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN) {
     alert("Password length must be a number between 8 and 128")
@@ -25,12 +26,12 @@ var messages = function() {
   }
   if (confirm("Include special characters?") === true) {
     userChoiceArray = userChoiceArray.concat(special)
-  } 
+  } return true
 }
 
-var password = ""
 //Code to pick random characters from user's choice array
 var generatePassword = function() {
+  var password = ""
   for(var i = 0; i < passwordLength; i++) {
     var random = Math.floor(Math.random() * userChoiceArray.length)
     password = password + userChoiceArray[random]
@@ -46,10 +47,11 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var messageCheck = messages();
   var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
+  if(messageCheck) {
+  var newPassword = generatePassword();
+  passwordText.value = newPassword}
 
 }
 
