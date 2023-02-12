@@ -17,3 +17,4 @@ https://joshsandquist.github.io/module-3-challenge/
 
 ## Screenshots
 
+<img width="1512" alt="Screenshot 2023-02-12 at 11 13 05 AM" src="https://user-images.githubusercontent.com/104536533/218329175-239231fe-0c5e-4b1d-99fe-c8d2004d4488.png">
