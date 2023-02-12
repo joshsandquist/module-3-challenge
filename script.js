@@ -8,15 +8,16 @@ var userChoiceArray =[]
 // This function will allow for the user to decide perameters for their password
 var messages = function() {
   passwordLength = prompt("Please enter the number of characters between 8-128")
-  if (passwordLength < 8 || passwordLength> 128) {
+  if (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN) {
     alert("Password length must be a number between 8 and 128")
     //Stops the messages if length is invalid
     return false
   } 
-  if (confirm("Include lowercase letter?") === true) {
+    //Adds user's criteria choices into blank userChoiceArray if true
+  if (confirm("Include lowercase letters?") === true) {
     userChoiceArray = userChoiceArray.concat(lowerCase)
   }
-  if (confirm("Include uppercase letter?") === true) {
+  if (confirm("Include uppercase letters?") === true) {
     userChoiceArray = userChoiceArray.concat(upperCase)
   }
   if (confirm("Include numbers?") === true) {
@@ -25,14 +26,16 @@ var messages = function() {
   if (confirm("Include special characters?") === true) {
     userChoiceArray = userChoiceArray.concat(special)
   } 
-  else {
-    alert("Please choose at least one perameter!")
-  }
 }
+
+var password = ""
 //Code to pick random characters from user's choice array
 var generatePassword = function() {
-  var password = "";
-  for(var i = 0; i < userChoiceArray.length; i++)
+  for(var i = 0; i < passwordLength; i++) {
+    var random = Math.floor(Math.random() * userChoiceArray.length)
+    password = password + userChoiceArray[random]
+  }
+  return password
 }
 
 
