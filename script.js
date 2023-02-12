@@ -11,7 +11,7 @@ var messages = function() {
   passwordLength = prompt("Please enter the number of characters between 8-128")
   if (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN) {
     alert("Password length must be a number between 8 and 128")
-    //Stops the messages if length is invalid
+    //Stops the messages if length is invalid or not a number
     return false
   } 
     //Adds user's criteria choices into blank userChoiceArray if true
@@ -26,11 +26,14 @@ var messages = function() {
   }
   if (confirm("Include special characters?") === true) {
     userChoiceArray = userChoiceArray.concat(special)
-  } return true
+  } 
+  //returns true for use in writePassword function
+  return true
 }
 
 //Code to pick random characters from user's choice array
 var generatePassword = function() {
+  //resets password each time the user presses the button
   var password = ""
   for(var i = 0; i < passwordLength; i++) {
     var random = Math.floor(Math.random() * userChoiceArray.length)
@@ -49,6 +52,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var messageCheck = messages();
   var passwordText = document.querySelector("#password");
+  // only runs the password generator if the message check is true
   if(messageCheck) {
   var newPassword = generatePassword();
   passwordText.value = newPassword}
