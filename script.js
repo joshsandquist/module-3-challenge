@@ -8,7 +8,7 @@ var userChoiceArray =[]
 // This function will allow for the user to decide perameters for their password
 var messages = function() {
   userChoiceArray = []
-  passwordLength = prompt("Please enter the number of characters between 8-128")
+  passwordLength = prompt("Please enter a number between 8-128 for password length")
   if (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     alert("Password length must be a number between 8 and 128")
     //Stops the messages if length is invalid or not a number
