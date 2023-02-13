@@ -9,7 +9,7 @@ var userChoiceArray =[]
 var messages = function() {
   userChoiceArray = []
   passwordLength = prompt("Please enter the number of characters between 8-128")
-  if (passwordLength < 8 || passwordLength > 128 || passwordLength === NaN) {
+  if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)) {
     alert("Password length must be a number between 8 and 128")
     //Stops the messages if length is invalid or not a number
     return false
@@ -26,9 +26,14 @@ var messages = function() {
   }
   if (confirm("Include special characters?") === true) {
     userChoiceArray = userChoiceArray.concat(special)
-  } 
-  //returns true for use in writePassword function
-  return true
+  }  
+ // If no choices are selected, the user will be alerted to select at least one perameter
+  if (userChoiceArray.length === 0) {
+    alert("Please choose at least one perameter!")
+    return false
+  }
+  return true 
+
 }
 
 //Code to pick random characters from user's choice array
